@@ -1,0 +1,126 @@
+/* Custom Properties for easy color change */
+:root {
+    --bg-color: #1a1a2e; /* Deep Violet Background */
+    --accent-color: #00bcd4; /* Cyan/Turquoise Accent */
+    --block-color: #f1f1f1; /* Off-White Block Color */
+    --text-color: #ffffff; 
+    --glow-color: #00ffff; /* Neon Glow */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    /* Basic animation for atmosphere */
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#game-container {
+    width: 100%;
+    max-width: 450px; /* Mobile-friendly width */
+    height: 100%;
+    max-height: 800px;
+    border: 5px solid var(--accent-color);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Container Glow */
+    position: relative;
+    overflow: hidden;
+}
+
+#game-area {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #0d0d1e, #1a1a2e); /* Subtle gradient background */
+    position: relative;
+    transition: transform 0.3s ease-out; /* For smooth scrolling when the tower gets high */
+}
+
+/* The Moving and Stacked Blocks */
+.block {
+    width: 250px; /* Initial width */
+    height: 30px;
+    background-color: var(--block-color);
+    position: absolute;
+    left: 0;
+    margin: 0 auto;
+    border-radius: 3px;
+    box-shadow: 0 0 10px var(--glow-color); /* Neon Block Glow */
+}
+
+/* Base Block */
+#base-block {
+    bottom: 0; /* Stays at the bottom */
+    left: 100px; /* Centered-ish based on width */
+    width: 250px;
+    box-shadow: 0 0 15px var(--glow-color), 0 0 30px var(--glow-color); /* Stronger glow for the base */
+}
+
+/* Score Board */
+#score-board {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--glow-color);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    z-index: 10;
+}
+
+/* Tap Area (Covers the whole game for easy tapping) */
+#tap-area {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5; /* Below score and game over screen, but above blocks */
+    cursor: pointer;
+}
+
+/* Game Over Screen */
+#game-over-screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 20;
+}
+
+#game-over-screen h2 {
+    color: var(--accent-color);
+    text-shadow: 0 0 15px var(--accent-color);
+}
+
+#game-over-screen button {
+    padding: 12px 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: 2px solid var(--accent-color);
+    background-color: var(--bg-color);
+    color: var(--accent-color);
+    border-radius: 8px;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
+
+#game-over-screen button:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}

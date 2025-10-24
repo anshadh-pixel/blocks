@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Stacker Game (Timing Challenge)</title>
+    <link rel="stylesheet" href="stacker.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="game-area">
+            
+            <div id="base-block" class="block"></div>
+
+            <div id="score-board">
+                Score: <span id="score">0</span>
+            </div>
+            
+            <div id="game-over-screen" style="display:none;">
+                <h2>Game Over!</h2>
+                <p>Perfect timing is key!</p>
+                <p>Final Score: <span id="final-score">0</span></p>
+                <button onclick="startGame()">Start New Tower</button>
+            </div>
+
+            <div id="tap-area"></div>
+        </div>
+    </div>
+
+    <script src="stacker.js"></script>
+</body>
+</html>
